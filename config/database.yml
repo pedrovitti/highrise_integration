@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: highrise_integration
+  host: localhost
+  pool: 5
+  username: rails_user
+  password: password1
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: highrise_integration
+  pool: 5
+  username: rails_user
+  password: password1
