@@ -63,13 +63,13 @@ class PeopleController < ApplicationController
   end
   
   def save_to_highrise
-     @person.highrise_id = @person.save_to_highrise
-     @person.save
-     redirect_to '/', notice: "Person was saved to Highrise with id:#{@person.highrise_id}."
+     @person = Person.find(params[:person_id])
+     redirect_to @person, notice: 'Saving to highrise...'
+     HighriseWorker.perform_async(current_user.highrise_url, current_user.highrise_token, params[:person_id])
+
   end
 
   def delete_from_highrise
-     @person.delete_from_highrise
      @person.highrise_id=nil
      @person.save
      redirect_to '/', notice: 'Person was successfully deleted from Highrise'

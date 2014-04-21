@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'devise'
 
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -40,4 +41,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 gem 'pg'
 
-gem 'highrise_integration_pv'
+gem 'highrise'
+gem 'sidekiq' 
