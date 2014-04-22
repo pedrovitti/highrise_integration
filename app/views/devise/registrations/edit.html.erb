@@ -1,35 +1,54 @@
+<fieldset>
+  <div class="page-header">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: "E-mail", class: "form-control input-md"  %>
+  </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div class="alert alert-info">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+  <div class="form-group">
+    <%= f.label :password %><br> <i>(leave blank if you don't want to change it)</i>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control input-md"  %>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmartion, autocomplete: "off", class: "form-control input-md"  %>
+  </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
+  <div class="form-group">
+   <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+    <%= f.password_field :current_password, autocomplete: "off", class: "form-control input-md"  %>
+  </div>
   
-  <div><%= f.label :highrise_url %><br />
-    <%= f.text_field :highrise_url %></div>
+  <div class="form-group">
+    <%= f.label :highrise_url %>
+    <%= f.text_field :highrise_url, placeholder: "Highrise Base URL", class: "form-control input-md"  %>
+ </div>
   
-  <div><%= f.label :highrise_token %><br />
-    <%= f.text_field :highrise_token %></div>
+  <div class="form-group">
+    <%= f.label :highrise_token %>
+    <%= f.text_field :highrise_token, placeholder: "Highrise API Token", class: "form-control input-md"  %>
+ </div>
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
+   <div class="form-group">
+    <div>
+      <%= f.submit 'Update', class: "btn btn-success btn-lg"%>
+    <% end %>
+    </div></br>
+  </div>
+  </div>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-lg" %></p>
 
 <%= link_to "Back", :back %>
+</fieldset>
