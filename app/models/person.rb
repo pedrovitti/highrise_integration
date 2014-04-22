@@ -5,7 +5,7 @@ class Person < ActiveRecord::Base
     
   def send_to_highrise
     setup_highrise
-    person = Highrise::Person.new(highrise_hash)
+    person = Highrise::Person.new(to_highrise_hash)
     person.save!
   end
 
@@ -15,8 +15,8 @@ class Person < ActiveRecord::Base
     Highrise::Base.format = :xml
   end 
 
-  def highrise_hash
-    return {
+  def to_highrise_hash
+    {
         :first_name => self.name, 
         :last_name => self.last_name,
         :title => self.job_title,

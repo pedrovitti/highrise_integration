@@ -36,7 +36,7 @@ describe HighriseIntegration do
           ]
         }
       }
-      expect(person.highrise_hash).to eq(highrise_hash)
+      expect(person.to_highrise_hash).to eq(highrise_hash)
     end
   end
 end
