@@ -42,7 +42,7 @@ gem 'spring',        group: :development
 
 # Use PostgreSQL RDBMS
 gem 'pg'
-
+gem 'thin'
 #Ruby wrapper around Highrise API
 gem 'highrise'
 
