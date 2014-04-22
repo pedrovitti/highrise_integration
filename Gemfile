@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
@@ -15,9 +14,12 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'devise'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 2.3.0"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -39,7 +41,16 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use PostgreSQL RDBMS
 gem 'pg'
 
+#Ruby wrapper around Highrise API
 gem 'highrise'
-gem 'sidekiq' 
+
+# Use sidekiq for background jobs
+gem 'sidekiq'
+
+gem 'bootstrap-sass', '~> 3.1.1'
+
+gem 'sinatra', require: false
