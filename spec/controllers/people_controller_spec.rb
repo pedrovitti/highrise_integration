@@ -7,7 +7,7 @@ describe PeopleController do
                             highrise_url: 'https//test.highrisehq.com',
                             highrise_token: '111') }
   
- 
+  let!(:attributes) { { "name" => "TestName", "user_id" => user.id } }
   let!(:person) { Person.create!({ "name" => "TestName", "user_id" => user.id }) }
 
   describe "GET index" do
@@ -118,6 +118,14 @@ describe PeopleController do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(Person).to receive(:save).and_return(false)
         put :update, {:id => person.to_param, :person => { "name" => "invalid value" }}
+        response.should render_template("edit")
+      end
+      
+      it "re-renders the 'edit' template when invalid e-mail" do
+        sign_in user
+        # Trigger the behavior that occurs when invalid params are submitted
+        allow_any_instance_of(Person).to receive(:save).and_return(false)
+        put :update, {:id => person.to_param, :person => { "name" => "invalid value", "e-mail" => "invalid e-mail" }}
         response.should render_template("edit")
       end
     end
