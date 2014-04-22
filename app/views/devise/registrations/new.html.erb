@@ -1,18 +1,40 @@
-<h2>Sign up</h2>
+<fieldset>
+ <div class="page-header"><h1>Sign up</h1></div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+    <%= devise_error_messages! %>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, placeholder: "E-mail", class: "form-control input-md"  %>
+  </div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+ <div class="form-group">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: "form-control input-md"  %>
+  </div>
 
-<%= render "devise/shared/links" %>
+ <div class="form-group">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, class: "form-control input-md"  %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :highrise_url %><br>
+    <%= f.text_field :highrise_url, placeholder: "Highrise Base URL", class: "form-control input-md"  %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :highrise_token %><br>
+    <%= f.text_field :highrise_token, placeholder: "Highrise API Token", class: "form-control input-md"  %>
+  </div>
+
+ <div class="form-group">
+    <div>
+      <%= f.submit "Sign up", class: "btn btn-success btn-lg"%>
+    <% end %>
+    </div></br>
+  </div>
+</fieldset>
