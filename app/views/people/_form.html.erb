@@ -1,7 +1,8 @@
+<fieldset>
 <%= form_for(@person) do |f| %>
   <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+    <div class="alert alert-danger">
+      <h3><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h3>
 
       <ul>
       <% @person.errors.full_messages.each do |message| %>
@@ -11,35 +12,45 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "Name", class: "form-control input-md"  %>
   </div>
-  <div class="field">
+
+  <div class="form-group">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control input-md"  %>
   </div>
-  <div class="field">
+ 
+  <div class="form-group">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, placeholder: "E-mail", class: "form-control input-md"  %>
   </div>
-  <div class="field">
+ 
+  <div class="form-group">
     <%= f.label :company %><br>
-    <%= f.text_field :company %>
+    <%= f.text_field :company, placeholder: "Company", class: "form-control input-md"  %>
   </div>
-  <div class="field">
+ 
+  <div class="form-group">
     <%= f.label :job_title %><br>
-    <%= f.text_field :job_title %>
+    <%= f.text_field :job_title, placeholder: "Job Title", class: "form-control input-md"  %>
   </div>
-  <div class="field">
+
+  <div class="form-group">
     <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, placeholder: "Phone", class: "form-control input-md"  %>
   </div>
-  <div class="field">
+ 
+  <div class="form-group">
     <%= f.label :website %><br>
-    <%= f.text_field :website %>
+    <%= f.text_field :website, placeholder: "Website", class: "form-control input-md"  %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+     <div class="form-group">
+    <div>
+      <%= f.submit class: "btn btn-success btn-lg"%>
+    <% end %>
+    </div></br>
   </div>
-<% end %>
+</fieldset>

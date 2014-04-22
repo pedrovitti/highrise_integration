@@ -10,17 +10,17 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    @person = Person.find_by_id_and_user_id(params[:id], current_user.id)
   end
 
-  # GET /people/new
   def new
     @person = Person.new
   end
 
-  # GET /people/1/edit
   def edit
+    @person = Person.find_by_id_and_user_id(params[:id], current_user.id)
   end
-
+  
   # POST /people
   # POST /people.json
   def create
@@ -64,9 +64,8 @@ class PeopleController < ApplicationController
   
   def save_to_highrise
      @person = Person.find(params[:person_id])
-     redirect_to @person, notice: 'Saving to highrise...'
      HighriseWorker.perform_async(current_user.highrise_url, current_user.highrise_token, params[:person_id])
-
+     redirect_to @person, notice: 'Saving to highrise...'
   end
 
   def delete_from_highrise

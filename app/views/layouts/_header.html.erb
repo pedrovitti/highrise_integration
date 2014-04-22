@@ -1,0 +1,39 @@
+ <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'Highrise Integration', root_path, class: "navbar-brand" %>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><%= link_to 'Home', root_path %></li>
+            <li class="">
+              <%= link_to('Sidekiq Jobs', sidekiq_web_path, :target => '_blank')%>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <strong><%= current_user.email %></strong> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+               <li> <%= link_to 'Edit profile', edit_user_registration_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><button class="btn btn-default navbar-btn"><%= link_to 'Sign Up', new_user_registration_path %></button></li>
+            <li><button class="btn btn-sucess navbar-btn"><%= link_to 'Sign In', new_user_session_path %></button></li>
+          <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
